@@ -13,11 +13,8 @@ return new class extends Migration
         Schema::create('authors', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id'); // Khóa ngoại liên kết với bảng users
-            $table->string('role')->default('user'); // Trường phân quyền
-            $table->json('permissions')->nullable(); // Quyền cụ thể nếu cần
+            $table->string('name')->nullable(); // Quyền cụ thể nếu cần
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
